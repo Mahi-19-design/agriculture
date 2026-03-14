@@ -1,303 +1,112 @@
-# 🌦 Weather API Research for Crop Disease Detection
-
-This project explores and compares major **Weather APIs** that can be integrated into an **AI-based Crop Disease Detection System**.
-
-Weather plays a crucial role in agriculture. Many plant diseases depend on environmental conditions such as **humidity, rainfall, temperature, and wind speed**. By integrating weather data with AI crop disease detection models, the system can provide **early warnings and predictive insights for farmers**.
-
----
-# 🌱 Overview
-
-This document compares the following Weather APIs:
-
-- OpenWeather API
-- Tomorrow.io API
-- Weatherstack API
-- Open-Meteo API
-
-The comparison focuses on:
-
-- Weather parameters available
-- API request limits
-- Pricing models
-- Global coverage
-- Agricultural relevance
+# 🌦 Weather API — Hackathon Summary
 
 ---
 
-# 🎯 Project Objective
-
-The objective is to identify the most suitable weather API for integration with a **Crop Disease Detection Platform**.
-
-The final system will provide:
-
-- 🌾 Crop disease detection using AI
-- 🌦 Weather-based disease risk prediction
-- 🚨 Early alerts for farmers
-- 📊 Environmental monitoring
+## ✅ Best API: Open-Meteo (Primary) + OpenWeather (Secondary)
 
 ---
 
-# 🌿 Why Weather Data Matters
+## 🥇 Open-Meteo — Primary API
 
-Many crop diseases depend heavily on environmental conditions.
+**Why it's the best choice for our hackathon:**
 
-| Disease | Weather Condition |
-|-------|------------------|
-| Powdery Mildew | High humidity |
-| Leaf Blight | Warm + wet weather |
-| Rust Disease | Rainfall + humidity |
-| Downy Mildew | Cool + moist climate |
+- No API key, no registration, no credit card required — start instantly
+- 10,000 free requests per day
+- Covers all crop-disease-relevant parameters: humidity, temperature, rainfall, wind speed, solar radiation, and soil temperature
+- Supports last 10 days of historical data via `past_days=10` parameter
+- Non-commercial use is completely free — perfect for a hackathon
 
-Combining **AI image detection + weather data** improves prediction accuracy.
-
----
-
-# ⚡ Quick API Decision Checklist
-
-Use this checklist for fast API selection.
-
+**Gandhinagar endpoint example:**
 ```
-[ ] Need a free API for hackathon
-[ ] Need global coverage
-[ ] Need high request limits
-[ ] Need forecast data
-[ ] Need historical weather data
-[ ] Need advanced weather analytics
+https://api.open-meteo.com/v1/forecast
+  ?latitude=23.2156
+  &longitude=72.6369
+  &hourly=relative_humidity_2m,temperature_2m,precipitation,windspeed_10m
+  &past_days=10
 ```
 
-### Recommended Choices
+---
 
-| Requirement | API |
-|-------------|-----|
-| Beginner Friendly | OpenWeather |
-| High Free Limits | Open-Meteo |
-| Advanced Weather Intelligence | Tomorrow.io |
-| Lightweight API | Weatherstack |
+## 🥈 OpenWeather — Secondary API (for alerts + UV index)
+
+**Use only for:**
+
+- Government weather alerts
+- UV index data (not available in Open-Meteo free tier)
+
+**Free tier:** 1,000 calls/day — requires free account + credit card (set daily cap immediately after signup to avoid charges)
 
 ---
 
-# 📊 Weather API Comparison
+## 🤖 How Claude Haiku Accesses the Weather Data
 
-| Feature | OpenWeather | Tomorrow.io | Weatherstack | Open-Meteo |
-|--------|-------------|-------------|--------------|------------|
-| Global Coverage | ✅ | ✅ | ✅ | ✅ |
-| Forecast Data | ✅ | ✅ | ✅ | ✅ |
-| Historical Data | ✅ | Limited | ✅ | ✅ |
-| Agricultural Data | Limited | Advanced | Basic | Moderate |
-| Free Tier | Good | Limited | Small | Large |
-| Ease of Integration | Easy | Medium | Easy | Easy |
+Claude Haiku (model: `claude-haiku-4-5-20251001`) **does not call APIs directly**. The flow is:
 
----
-
-# 🌍 Weather API Details
-
-## 1️⃣ OpenWeather API
-
-### Coverage
-- Global coverage
-- Uses latitude and longitude
-
-### Parameters Provided
-
-- Temperature
-- Humidity
-- Wind speed
-- Atmospheric pressure
-- Rainfall
-- Cloud coverage
-- UV index
-- Visibility
-- Weather alerts
-
-### API Limits
-
-Free Tier:
-
-```
-1000 API calls per day
-60 calls per minute
-```
-
-### Pricing
-
-| Plan | Price |
-|------|------|
-| Free | $0 |
-| Pay-as-you-go | ~$0.001 per call |
-| Enterprise | Custom pricing |
-
-### Advantages
-
-- Easy integration
-- Good documentation
-- Ideal for hackathons
-
----
-
-## 2️⃣ Tomorrow.io API
-
-### Coverage
-
-- Global hyperlocal forecasts
-- Satellite and radar data models
-
-### Parameters
-
-- Temperature
-- Humidity
-- Wind speed
-- Precipitation
-- Visibility
-- Lightning probability
-- Air quality
-- Pollen levels
-
-### API Limits
-
-```
-500 requests per day
-25 requests per hour
-```
-
-### Pricing
-
-| Plan | Price |
-|------|------|
-| Free | $0 |
-| Developer | Paid |
-| Enterprise | Custom |
-
-### Advantages
-
-- Highly accurate forecasts
-- Advanced analytics
-
----
-
-## 3️⃣ Weatherstack API
-
-### Coverage
-
-- Global coverage
-- Multi-language support
-
-### Parameters
-
-- Temperature
-- Humidity
-- Wind speed
-- Cloud cover
-- Visibility
-- Weather descriptions
-
-### API Limits
-
-```
-100 API calls per month (Free Plan)
-```
-
-### Pricing
-
-| Plan | Price | Calls |
-|------|------|------|
-| Free | $0 | 100/month |
-| Standard | $9.99 | 50k/month |
-| Professional | $49.99 | 300k/month |
-
----
-
-## 4️⃣ Open-Meteo API
-
-### Coverage
-
-- Global weather models
-- High resolution forecasts
-
-### Parameters
-
-- Temperature
-- Rainfall
-- Wind speed
-- Solar radiation
-- Air pressure
-- Snow depth
-- Soil temperature
-
-### API Limits
-
-```
-10,000 requests per day
-300,000 requests per month
-```
-
-### Pricing
-
-| Plan | Price |
-|------|------|
-| Free | $0 |
-| Standard | Paid |
-| Professional | Paid |
-
-### Advantages
-
-- Very large free tier
-- Great for research and data-heavy applications
-
----
-
-# 🌾 Important Weather Parameters for Crop Disease Detection
-
-| Parameter | Importance |
-|----------|------------|
-| Temperature | Influences pathogen growth |
-| Humidity | Promotes fungal diseases |
-| Rainfall | Helps spread disease spores |
-| Wind Speed | Transmits pathogens |
-| Solar Radiation | Affects plant stress |
-| Soil Temperature | Influences root diseases |
-
----
-
-# 🧠 Example Disease Prediction Logic
-
+1. **Your app code** calls the Open-Meteo API and gets JSON weather data
+2. **Your app code** passes that JSON into Claude Haiku's prompt as context
+3. **Claude Haiku** reads the data, reasons over it, and returns a disease risk verdict
 ```python
-humidity = 85
-temperature = 27
-rain_probability = 70
+import requests
+import anthropic
 
-if humidity > 80 and 20 <= temperature <= 30 and rain_probability > 60:
-    print("High Risk of Fungal Disease")
-else:
-    print("Low Disease Risk")
+# Step 1: Fetch weather data (your code does this)
+weather = requests.get(
+    "https://api.open-meteo.com/v1/forecast",
+    params={
+        "latitude": 23.2156,
+        "longitude": 72.6369,
+        "hourly": "relative_humidity_2m,temperature_2m,precipitation",
+        "past_days": 10
+    }
+).json()
+
+# Step 2: Send to Claude Haiku with weather data as context
+client = anthropic.Anthropic()
+message = client.messages.create(
+    model="claude-haiku-4-5-20251001",
+    max_tokens=1024,
+    messages=[
+        {
+            "role": "user",
+            "content": f"""
+You are a crop disease detection assistant.
+
+Here is the last 10 days of weather data for Gandhinagar, India:
+{weather}
+
+Based on this weather data, assess the risk of fungal crop disease.
+Flag any days where humidity exceeded 80% combined with temperatures between 20–30°C.
+Give a risk level: Low / Medium / High.
+            """
+        }
+    ]
+)
+print(message.content[0].text)
 ```
 
 ---
 
-# 🏗 Suggested System Architecture
+## 📊 Parameters Most Useful for Disease Detection
 
-```
-Farmer uploads crop image
-        ↓
-AI Model detects disease
-        ↓
-Get farmer location
-        ↓
-Fetch weather data using API
-        ↓
-Analyze weather conditions
-        ↓
-Predict disease risk
-        ↓
-Send recommendation to farmer
-```
+| Parameter | Open-Meteo Variable | Disease Link |
+|-----------|-------------------|--------------|
+| Humidity | `relative_humidity_2m` | Fungal growth trigger |
+| Temperature | `temperature_2m` | Pathogen activity range |
+| Rainfall | `precipitation` | Spore spread |
+| Wind speed | `windspeed_10m` | Pathogen transmission |
+| Soil temperature | `soil_temperature_0cm` | Root disease risk |
+| Solar radiation | `shortwave_radiation` | Plant stress indicator |
 
-# 🔮 Future Improvements
+---
 
-Possible upgrades:
+## ⚡ Quick Summary
 
-- Satellite crop monitoring
-- IoT soil moisture sensors
-- Machine learning disease prediction
-- Regional disease outbreak alerts
-- Weather-based pesticide recommendation
-
+| Question | Answer |
+|----------|--------|
+| Best API | Open-Meteo |
+| API key needed? | No |
+| Last 10 days data? | Yes — `past_days=10` |
+| Location for Gandhinagar | lat=23.2156, lon=72.6369 |
+| Does Haiku call API itself? | No — your code fetches, then passes data |
+| Claude model string | `claude-haiku-4-5-20251001` |
+| Cost for hackathon | Free |
