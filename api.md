@@ -5,23 +5,6 @@ This project explores and compares major **Weather APIs** that can be integrated
 Weather plays a crucial role in agriculture. Many plant diseases depend on environmental conditions such as **humidity, rainfall, temperature, and wind speed**. By integrating weather data with AI crop disease detection models, the system can provide **early warnings and predictive insights for farmers**.
 
 ---
-
-# 📌 Table of Contents
-
-- Overview
-- Project Objective
-- Why Weather Data Matters
-- Quick API Decision Checklist
-- Weather API Comparison
-- Weather API Details
-- Important Weather Parameters
-- Example Disease Prediction Logic
-- System Architecture
-- Recommended APIs for Hackathons
-- Future Improvements
-
----
-
 # 🌱 Overview
 
 This document compares the following Weather APIs:
@@ -308,24 +291,6 @@ Predict disease risk
 Send recommendation to farmer
 ```
 
----
-
-# 🚀 Recommended APIs for Hackathons
-
-Best choices:
-
-1. OpenWeather API
-2. Open-Meteo API
-
-Reasons:
-
-- Large free tiers
-- Global coverage
-- Easy integration
-- Good documentation
-
----
-
 # 🔮 Future Improvements
 
 Possible upgrades:
@@ -336,15 +301,3 @@ Possible upgrades:
 - Regional disease outbreak alerts
 - Weather-based pesticide recommendation
 
----
-
-# 🤝 Contribution
-
-Contributions are welcome!  
-Feel free to open issues or submit pull requests.
-
----
-
-# 📜 License
-
-This project is licensed under the **MIT License**.
